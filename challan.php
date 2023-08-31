@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Challan Entry</title>
+    <title>File a Challan | Traffic Challan</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
         /* Your existing styles remain unchanged */
 
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
         body {
+            color: #2C3E50;
             margin: 0;
-            background-color: #f2f2f2;
+            background-color: #BDC3C7;
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
+            font-family: 'Inter', sans-serif;
         }
 
-        .navbar {
+        .topnav {
             overflow: hidden;
-            background-color: #333;
+            background-color: #2C3E50;
         }
 
-        .navbar-left {
+        .topnav a {
             float: left;
-        }
-
-        .navbar-right {
-            float: right;
-        }
-
-        .navbar a {
-            display: inline-block;
             color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-size: 18px;
         }
 
-        .navbar a.logout {
-            background-color: red;
-            border-radius: 5px;
+        .topnav-right {
+            float: right;
         }
+        
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+        .topnav-right a {
+            border-radius: 25px;
+            background-color: #34495E;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .topnav-right a:hover{
+            background-color: white;
+            color:#34495E
         }
 
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: fit-content;
+            background-color: #f2f2f2;
         }
 
         .box {
-            background-color: white;
+            
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             width: 400px;
             border: none; /* Removed border */
         }
@@ -64,13 +69,15 @@
 </head>
 <body>
 
-<div class="navbar">
-    <div class="navbar-left">
-        <a href="#">Karnataka Police</a>
+<div class="topnav">
+    <a href="#" style="pointer-events: none">Ride Safe Ride Responsibly</a>
+    <div class="topnav-right">
+        <a href="index.php" class="button">Log Out</a>
     </div>
-    <div class="navbar-right">
-        <a href="index.php" class="logout">Logout</a>
+    <div class="topnav-right">
+        <a href="modify.php" class="button">Modify Challan</a>
     </div>
+    
 </div>
 
 <div class="container">
@@ -94,7 +101,7 @@
                 <input type="number" step="0.01" name="amount" required>
             </div>
             <div class="form-group">
-                <input type="submit" name="submit_challan" value="Submit">
+                <input type="submit" name="submit_challan" value="Add Challan">
             </div>
         </form>
     </div>

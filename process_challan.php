@@ -23,53 +23,60 @@ if (isset($_POST['submit_challan'])) {
         <!DOCTYPE html>
 <html>
 <head>
-    <title>Centered Box Page</title>
+    <title>Challan added | Traffic challan</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-        }
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
+    body {
+        color: #2C3E50;
+        margin: 0;
+        background-color: #BDC3C7;
+        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Inter", sans-serif;
+    }
 
-        .navbar a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 18px;
-        }
+    .topnav {
+        overflow: hidden;
+        background-color: #2C3E50;
+    }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+    .topnav a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
 
-        .container {
+    .topnav-right {
+        float: right;
+    }
+    
+
+    .topnav-right a {
+        border-radius: 25px;
+        background-color: #34495E;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    .topnav-right a:hover{
+        background-color: white;
+        color:#34495E
+    }
+        .box {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
 
-        .box {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            text-align: center;
-        }
+        
 
         .greeting {
             font-size: 24px;
@@ -80,6 +87,7 @@ if (isset($_POST['submit_challan'])) {
             background-color: #1c1c25;
             color: white;
             border: none;
+            text-decoration:none;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
@@ -92,19 +100,22 @@ if (isset($_POST['submit_challan'])) {
 </head>
 <body>
 
-<div class="navbar">
-    <div class="navbar-left">
-        <a href="#">Karnataka Police</a>
+<div class="topnav">
+    <a href="#" style="pointer-events: none">Ride Safe Ride Responsibly</a>
+    <div class="topnav-right">
+        <a href="index.php" class="button">Log Out</a>
     </div>
+    <div class="topnav-right">
+        <a href="challan.php" class="button">Add another Challan</a>
+    </div>
+    
 </div>
 
-<div class="container">
-    <div class="box">
+<div class="box">
         <div class="greeting">
             Challan added Successfully !!! 
         </div>
         <br>
-        <a href="challan.php" class="btn">DONE</a>
     </div>
 </div>
 

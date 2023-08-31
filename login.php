@@ -1,59 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Officer Login</title>
+    <title>Officer Login | Traffic challan</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        /* Your existing styles remain unchanged */
 
         body {
             margin: 0;
-            background-color: #f2f2f2;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: #2C3E50;
+            background-color: #BDC3C7;
+            font-family: Arial, Helvetica, sans-serif;
+            
         }
 
-        .navbar {
+         .topnav {
             overflow: hidden;
-            background-color: #333;
+            background-color: #2C3E50;
         }
 
-        .navbar-left {
+        .topnav a {
             float: left;
-        }
-
-        .navbar-right {
-            float: right;
-        }
-
-        .navbar a {
-            display: inline-block;
             color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-size: 18px;
         }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+        .topnav-right {
+            float: right;
         }
+        
+
+        .topnav-right a {
+            border-radius: 25px;
+            background-color: #34495E;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .topnav-right a:hover{
+            background-color: white;
+            color:#34495E
+        }
+
 
         .container {
+            background-color: #f2f2f2;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 50%;
+            align-items: center;
         }
 
         .box {
-            background-color: white;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             width: 400px;
         }
+                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
     </style>
 </head>
 <?php
@@ -87,25 +103,26 @@
 ?>
 <body>
 
-<div class="navbar">
-    <div class="navbar-left">
-        <a href="index.php">Traffic Challan</a>
-    </div>
-    <div class="navbar-right">
-        <a href="index.php">Home</a>
+<div class="topnav">
+    <a href="#" style="pointer-events: none">Ride Safe Ride Responsibly</a>
+    <div class="topnav-right">
+        <a href="login.php" class="button">Back to Home</a>
     </div>
 </div>
 
 <div class="container">
-    <div class="box">
-        <h2>Officer Login</h2>
+        <center>
         <form method="post" action="">
         <div class="form" id="frm">
                 <form name="frmContact" action="#" method="POST">
+                <h2>Officer Login</h2>
                     <input type="text" name="username" required="required" placeholder="Enter the Username" autofocus required></input>  
+                    <br><br>
                     <input type="password" name="password" required="required" placeholder="Enter the Password" required></input>
+                    <br><br>
                     <input type="submit" class="button" title="Log In" name="login" value="Login"></input>
                 </form>
+                </center>
             </div>
         </form>
     </div>

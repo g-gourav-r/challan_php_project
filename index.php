@@ -17,16 +17,22 @@ $challan_result = mysqli_query($con, $challan_query);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Karnataka Police</title>
+    <title>Home | Traffic Challan</title>
     <style>
+
+         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
         body {
+            color: #2C3E50;
             margin: 0;
+            background-color: #BDC3C7;
             font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         .topnav {
             overflow: hidden;
-            background-color: #333;
+            background-color: #2C3E50;
         }
 
         .topnav a {
@@ -40,10 +46,11 @@ $challan_result = mysqli_query($con, $challan_query);
         .topnav-right {
             float: right;
         }
+        
 
         .topnav-right a {
-            background-color: #4CAF50;
-            border: none;
+            border-radius: 25px;
+            background-color: #34495E;
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -52,6 +59,10 @@ $challan_result = mysqli_query($con, $challan_query);
             font-size: 16px;
             margin: 5px;
             cursor: pointer;
+        }
+        .topnav-right a:hover{
+            background-color: white;
+            color:#34495E
         }
 
         table {
@@ -63,13 +74,10 @@ $challan_result = mysqli_query($con, $challan_query);
         th, td {
             text-align: left;
             padding: 8px;
+            border: 1px solid #BDC3C7;
         }
 
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
+        tr {
             background-color: #f2f2f2;
         }
     </style>
@@ -77,14 +85,15 @@ $challan_result = mysqli_query($con, $challan_query);
 <body>
 
 <div class="topnav">
-    <a href="#">Traffic Challan</a>
+    <a href="#" style="pointer-events: none">Ride Safe Ride Responsibly</a>
     <div class="topnav-right">
         <a href="login.php" class="button">Officer Login</a>
     </div>
 </div>
 
 <div class="container">
-    <h2>Challan Database</h2>
+    <center><h1>Challan Database</h1>
+    <p>Official traffic challan viewing portal</p></center>
     <div class="challan-list">
         <table>
             <tr>
