@@ -12,6 +12,23 @@ if (!$con) {
 
 $challan_query = "SELECT * FROM challan";
 $challan_result = mysqli_query($con, $challan_query);
+
+$sql = "SELECT violation_type, COUNT(*) AS count FROM challan GROUP BY violation_type ORDER BY count DESC LIMIT 1";
+$result = mysqli_query($con, $sql);
+
+$most_common_violation = "";
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $most_common_violation = $row["violation_type"];
+}
+
+// Query to check if there are any violations
+$sql_check = "SELECT COUNT(*) AS total_violations FROM challan";
+$result_check = mysqli_query($con, $sql_check);
+$row_check = mysqli_fetch_assoc($result_check);
+$total_violations = $row_check["total_violations"];
+
 ?>
 
 <!DOCTYPE html>
@@ -80,6 +97,56 @@ $challan_result = mysqli_query($con, $challan_query);
         tr {
             background-color: #f2f2f2;
         }
+        /* Your existing styles */
+
+/* Your existing styles */
+/* Your existing styles */
+
+.violation-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc; /* Added border */
+    border-radius: 5px;
+    margin: 0 auto; /* Center the box horizontally */
+}
+
+.most-common-heading {
+    font-size: 24px;
+    margin-bottom: 10px; /* Added margin to separate from violation-type */
+}
+
+.most-common-violation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.violation-type {
+    font-size: 18px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0; /* Added margin to separate from other content */
+
+    /* Animation for moving left to right */
+    animation: moveLeftToRight 4s linear infinite;
+}
+
+/* Keyframes for animation */
+@keyframes moveLeftToRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -90,6 +157,18 @@ $challan_result = mysqli_query($con, $challan_query);
         <a href="login.php" class="button">Officer Login</a>
     </div>
 </div>
+<div class="violation-box">
+    <?php if ($total_violations > 0): ?>
+        <h3 class="most-common-heading">Most Common Violation:</h3>
+        <div class="most-common-violation">
+            <p class="violation-type"><?php echo $most_common_violation; ?></p>
+        </div>
+    <?php else: ?>
+        <div class="safe-day">
+            <h3>Wow, it's a safe day! No violations reported.</h3>
+        </div>
+    <?php endif; ?>
+    </div>
 
 <div class="container">
     <center><h1>Challan Database</h1>

@@ -65,6 +65,9 @@
             width: 400px;
             border: none; /* Removed border */
         }
+        select{
+            
+        }
     </style>
 </head>
 <body>
@@ -88,24 +91,48 @@
                 <label for="vehicle_number">Vehicle Number:</label>
                 <input type="text" name="vehicle_number" required>
             </div>
-            <div class="form-group">
-                <label for="violation_type">Violation Type:</label>
-                <input type="text" name="violation_type" required>
-            </div>
+
+
             <div class="form-group">
                 <label for="date_issued">Date Issued:</label>
                 <input type="date" name="date_issued" required>
             </div>
+
             <div class="form-group">
-                <label for="amount">Amount (Rs):</label>
-                <input type="number" step="0.01" name="amount" required>
+                <label for="violation_type">Violation Type:</label>
+                <select name="violation_type" id="violation_type" onchange="updateAmount()">
+                    <option value="Speeding">Speeding</option>
+                    <option value="Red Light Violation">Red Light Violation</option>
+                    <option value="Seatbelt Violation">Seatbelt Violation</option>
+                    <!-- Add more options as needed -->
+                </select>
             </div>
+
+            <div class="form-group">
+            <label for="amount">Amount (in Rupees):</label>
+            <input type="text" name="amount" id="amount" readonly>
+        </div>
             <div class="form-group">
                 <input type="submit" name="submit_challan" value="Add Challan">
             </div>
         </form>
     </div>
 </div>
+<script>
+function updateAmount() {
+    var violationType = document.getElementById("violation_type").value;
+    var amountInput = document.getElementById("amount");
+
+    if (violationType === "Speeding") {
+        amountInput.value = "1000"; // Example amount for speeding
+    } else if (violationType === "Red Light Violation") {
+        amountInput.value = "1500"; // Example amount for red light violation
+    } else if (violationType === "Seatbelt Violation") {
+        amountInput.value = "500"; // Example amount for seatbelt violation
+    }
+    // Add more conditions for other violation types as needed
+}
+</script>
 
 </body>
 </html>
